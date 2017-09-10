@@ -1,0 +1,36 @@
+#include "DHTNode.hpp"
+#include "HomieExtras.hpp"
+
+DHTNode::DHTNode(const char *id, const uint8_t pin, const uint8_t type, const int interval):
+_interval(interval)
+,_pin(pin)
+{
+	_node = new HomieNode(id, "temperature");
+	_dht = new DHT(pin, type);
+}
+
+void DHTNode::loop()
+{
+	if (millis() - _lastTemperatureSent >= _interval * 1000UL || _lastTemperatureSent == 0)
+	{
+		float temperature = _dht->readTemperature();
+		Homie.getLogger() << "Temperature: " << temperature << " °C" << endl;
+		_node->setProperty("degrees").send(String(temperature));
+		_lastTemperatureSent = millis();
+	}
+}
+
+void DHTNode::setup()
+{
+	_node->advertise("unit");
+	_node->advertise("degrees");
+	_node->setProperty("unit").send("c");
+
+	_dht->begin();
+}
+
+// DHTNode::~DHTNode()
+// {
+// 	//Helpers::abort(F("✖✖ ~HomieNode(): Destruction of HomieNode object not possible\n  Hint: Don't create HomieNode objects as a local variable (e.g. in setup())"));
+// 	return; // never reached, here for clarity
+// }
