@@ -6,7 +6,7 @@
             "request": "launch",
             "cwd": "${workspaceRoot}",
             "name": "PlatformIO Debugger",
-            "target": "c:/Users/lingwood/esp8266/Test/.pioenvs/nodemcuv2/firmware.elf",
+            "target": "c:/Users/lingwood/git/openhab/extras/.pioenvs/nodemcuv2/firmware.elf",
             "gdbpath": "C:/Users/lingwood/.platformio/penv/Scripts/piodebuggdb",
             "autorun": [ "source .pioinit" ]
         }
