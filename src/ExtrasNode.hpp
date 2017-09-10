@@ -8,8 +8,8 @@ class ExtrasNode
 {
 public:
 	~ExtrasNode();
-	virtual void setup();
-	virtual void loop();
+	virtual void setup() {}
+	virtual void loop() {}
 
 protected:
 	HomieNode *_node;
