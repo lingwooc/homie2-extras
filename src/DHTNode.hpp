@@ -8,13 +8,13 @@ class DHTNode;
 
 class DHTNode : public ExtrasNode
 {
-  public:
+public:
 	DHTNode(const char *id, const uint8_t pin, const uint8_t type, const int interval);
-	virtual void setup();
-	virtual void loop();
+	void setup();
+	void loop();
 
-  protected:
-  private:
+protected:
+private:
 	const uint8_t _pin;
 	DHT *_dht;
 	unsigned long _lastTemperatureSent = 0;

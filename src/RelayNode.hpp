@@ -8,14 +8,14 @@ class RelayNode;
 
 class RelayNode : public ExtrasNode
 {
-  public:
+public:
 	RelayNode(const char *id, const uint8_t pinHomieNode, const uint8_t initialState);
 	virtual void setup();
 
-  protected:
+protected:
 	virtual bool relayOnHandler(const HomieRange &range, const String &value);
 
-  private:
+private:
 	const uint8_t _pin;
 	HomieNode *_node;
 	const uint8_t _initialState;
