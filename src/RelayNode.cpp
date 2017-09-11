@@ -30,9 +30,3 @@ void RelayNode::setup()
 	pinMode(_pin, OUTPUT);
 	digitalWrite(_pin, HIGH);
 }
-
-// RelayNode::~RelayNode()
-// {
-// 	//Helpers::abort(F("✖✖ ~HomieNode(): Destruction of HomieNode object not possible\n  Hint: Don't create HomieNode objects as a local variable (e.g. in setup())"));
-// 	return; // never reached, here for clarity
-// }
