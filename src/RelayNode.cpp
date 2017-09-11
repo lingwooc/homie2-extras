@@ -3,9 +3,10 @@
 #include <functional>
 
 RelayNode::RelayNode(const char *id, const uint8_t pin, const uint8_t initialState)
-		: _pin(pin), _initialState(initialState)
+		: ExtrasNode(id, "switch")
+		,_pin(pin)
+		,_initialState(initialState)
 {
-	_node = new HomieNode(id, "switch");
 }
 
 bool RelayNode::relayOnHandler(const HomieRange &range, const String &value)

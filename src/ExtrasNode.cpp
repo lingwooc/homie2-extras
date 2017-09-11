@@ -3,6 +3,11 @@
 #include "HomieExtras.hpp"
 using namespace HomieInternals;
 
+ExtrasNode::ExtrasNode(const char *id, const char *type)
+{
+	_node = new HomieNode(id, type);
+}
+
 ExtrasNode::~ExtrasNode()
 {
 	Helpers::abort(F("✖✖ ~ExtrasNode(): Destruction of ExtrasNode object not possible\n  Hint: Don't create ExtrasNode objects as a local variable (e.g. in setup())"));

@@ -7,6 +7,7 @@ class ExtrasNode;
 class ExtrasNode
 {
 public:
+	ExtrasNode(const char *id, const char *style);
 	~ExtrasNode();
 	virtual void setup() {}
 	virtual void loop() {}
