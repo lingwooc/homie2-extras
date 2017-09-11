@@ -5,3 +5,20 @@
 
 #include "DHTNode.hpp"
 #include "RelayNode.hpp"
+
+class HomieExtras;
+
+class HomieExtras
+{
+friend class ExtrasNode;
+public:
+	static void setup();
+	static void loop();
+	static void setupHandler();
+	static void loopHandler();
+
+protected:
+	static std::vector<ExtrasNode*> nodes;	
+	
+private:
+};

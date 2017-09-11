@@ -7,7 +7,7 @@ DHTNode::DHTNode(const char *id, const uint8_t pin, const uint8_t type, const in
 	_dht = new DHT(pin, type);
 }
 
-void DHTNode::loop()
+void DHTNode::loopHandler()
 {
 	if (millis() - _lastTemperatureSent >= _interval * 1000UL || _lastTemperatureSent == 0)
 	{
@@ -16,6 +16,11 @@ void DHTNode::loop()
 		_node->setProperty("degrees").send(String(temperature));
 		_lastTemperatureSent = millis();
 	}
+}
+
+void DHTNode::setupHandler()
+{
+	_node->setProperty("unit").send("c");
 }
 
 void DHTNode::setup()
