@@ -5,6 +5,7 @@
 
 #include "DHTNode.hpp"
 #include "RelayNode.hpp"
+#include "DallasNode.hpp"
 
 class HomieExtras;
 

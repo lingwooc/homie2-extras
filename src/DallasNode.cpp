@@ -1,6 +1,4 @@
-#include <OneWireNode.hpp>
-
-#include "HomieExtras.hpp"
+#include <DallasNode.hpp>
 
 DallasNode::DallasNode(const char *id, const uint8_t pin, const int interval)
 	: TemperatureNode(id, interval)
