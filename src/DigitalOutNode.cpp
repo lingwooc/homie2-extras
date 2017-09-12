@@ -1,15 +1,15 @@
 #include "Homie.hpp"
-#include "RelayNode.hpp"
+#include "DigitalOutNode.hpp"
 #include <functional>
 
-RelayNode::RelayNode(const char *id, const uint8_t pin, const uint8_t initialState)
+DigitalOutNode::DigitalOutNode(const char *id, const uint8_t pin, const uint8_t initialState)
 		: ExtrasNode(id, "switch")
 		,_pin(pin)
 		,_initialState(initialState)
 {
 }
 
-bool RelayNode::relayOnHandler(const HomieRange &range, const String &value)
+bool DigitalOutNode::outOnHandler(const HomieRange &range, const String &value)
 {
 	if (value != "true" && value != "false")
 		return false;
@@ -22,12 +22,12 @@ bool RelayNode::relayOnHandler(const HomieRange &range, const String &value)
 	return true;
 }
 
-void RelayNode::setup()
+void DigitalOutNode::setup()
 {
 	_node->advertise("on").settable(
 			[this](const HomieRange &range, const String &value) {
-				return relayOnHandler(range, value);
+				return outOnHandler(range, value);
 			});
 	pinMode(_pin, OUTPUT);
-	digitalWrite(_pin, HIGH);
+	digitalWrite(_pin, _initialState);
 }

@@ -4,7 +4,8 @@
 #include "Homie.h"
 
 #include "DHTNode.hpp"
-#include "RelayNode.hpp"
+#include "DigitalOutNode.hpp"
+#include "DigitalOutNode.hpp"
 #include "DallasNode.hpp"
 
 class HomieExtras;
