@@ -1,7 +1,7 @@
 #include "EventNode.hpp"
 
 EventNode::EventNode(const char *id, const int interval, const char *unit) 
-: BroadcastNode(id, interval, "temperature")
+: BroadcastNode(id, interval, unit)
 {
 }
 

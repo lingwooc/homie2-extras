@@ -1,8 +1,7 @@
-#include "TemperatureNode.hpp"
-#include "HomieExtras.hpp"
+#include "BroadcastNode.hpp"
 
 BroadcastNode::BroadcastNode(const char *id, const int interval, const char *unit) 
-: ExtrasNode(id, "temperature")
+: ExtrasNode(id, unit)
 ,_interval(interval)
 ,_unit(unit)
 {
@@ -10,6 +9,7 @@ BroadcastNode::BroadcastNode(const char *id, const int interval, const char *uni
 
 void BroadcastNode::loopHandler()
 {
+	Homie.getLogger() << "Test" << endl;
 	if (millis() - _lastSent >= _interval * 1000UL || _lastSent == 0)
 	{
 		float value = getValue();

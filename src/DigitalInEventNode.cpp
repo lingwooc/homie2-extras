@@ -1,7 +1,5 @@
-#include "Homie.hpp"
 #include "DigitalInEventNode.hpp"
 #include <functional>
-#define BOUNCE_LOCK_OUT
 
 DigitalInEventNode::DigitalInEventNode(const char *id, const uint8_t pin)
 	: EventNode(id, 0, "digital")
@@ -13,9 +11,12 @@ DigitalInEventNode::DigitalInEventNode(const char *id, const uint8_t pin)
 
 void DigitalInEventNode::loopHandler()
 {
+	_debouncer->update();
 	bool value = _debouncer->read();
+	
 	if (value != _state)
 	{
+		Homie.getLogger() << "Button is now" << (value ? "pressed" : "not pressed") << endl;
 		sendValue(value ? 1.0 : 0.0);
 		_state = value;
 	}

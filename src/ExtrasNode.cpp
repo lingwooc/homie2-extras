@@ -6,6 +6,7 @@ using namespace HomieInternals;
 ExtrasNode::ExtrasNode(const char *id, const char *type)
 {
 	_node = new HomieNode(id, type);
+	init();
 }
 
 ExtrasNode::~ExtrasNode()

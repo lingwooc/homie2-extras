@@ -1,4 +1,3 @@
-#include "Homie.hpp"
 #include "DigitalInBroadcastNode.hpp"
 #include <functional>
 
@@ -11,11 +10,12 @@ DigitalInBroadcastNode::DigitalInBroadcastNode(const char *id, const int interva
 
 float DigitalInBroadcastNode::getValue()
 {
+	_debouncer->update();
 	return (float)_debouncer->read();
 }
 
 void DigitalInBroadcastNode::setup() {
-	pinMode(_pin, INPUT);
+	pinMode(_pin, INPUT_PULLUP);
 	_debouncer->attach(_pin);
 	_debouncer->interval(50);	
 }
