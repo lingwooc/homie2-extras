@@ -1,6 +1,6 @@
 #include <DallasNode.hpp>
 
-DallasNode::DallasNode(const char *id, const uint8_t pin, const int interval)
+DallasNode::DallasNode(const char *id, const int interval, const uint8_t pin)
 	: TemperatureNode(id, interval)
 {
 	_onewire = new OneWire(pin);
@@ -17,4 +17,5 @@ void DallasNode::setup()
 {
 	TemperatureNode::setup();
 	_dt->begin();
+	_dt->setResolution(12);
 }

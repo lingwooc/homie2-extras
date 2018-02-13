@@ -9,7 +9,7 @@ class DHTNode;
 class DHTNode : public TemperatureNode
 {
 public:
-	DHTNode(const char *id, const uint8_t pin, const uint8_t type, const int interval);
+	DHTNode(const char *id, const int interval, const uint8_t type, const uint8_t pin);
 	float getTemperature();	
 	void setup();
 

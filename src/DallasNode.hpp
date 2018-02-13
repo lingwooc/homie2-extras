@@ -8,7 +8,7 @@
 class DallasNode : public TemperatureNode
 {
 public:
-	DallasNode(const char *id, const uint8_t pin, const int interval);
+	DallasNode(const char *id, const int interval, const uint8_t pin);
 	void setup();
 	float getTemperature();
 

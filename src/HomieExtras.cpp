@@ -21,7 +21,7 @@ void HomieExtras::setupHandler()
 
 void HomieExtras::loopHandler()
 {
-	Homie.getLogger() << "Loop" << endl;
+	//Homie.getLogger() << "Loop" << endl;
 	for (ExtrasNode *iNode : HomieExtras::nodes)
 	{
 		iNode->loopHandler();
